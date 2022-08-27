@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <title>Document</title>
+</head>
+
+<body class="body">
+    <div class="toggle"></div>
+    <div class="overlay"></div>
+
+    <div class="menu">
+        <ul>
+            <li> <i class="bi bi-arrow-right-short"></i> <a href="#" data-text="acceuille">acceuille</a></li>
+            <li> <i class="bi bi-arrow-right-short"></i> <a href="#" data-text="contact">contact</a></li>
+            <li> <i class="bi bi-arrow-right-short"></i> <a href="#" data-text="projet">projet</a></li>
+            <li> <i class="bi bi-arrow-right-short"></i> <a href="#" data-text="cv">cv</a></li>
+        </ul>
+    </div>
+
+ 
+    <section class="bloc1 bloc">
+        <div id="embedback">
+            <div class="background">
+                <div class="layer layer1"></div>
+                <div class="layer layer2"></div>
+                <div class="layer layer3"></div>
+                <div class="layer layer4"></div>
+                <div class="layer layer5"></div>
+                <div class="layer layer6"></div>
+                <div class="layer layer7"></div>
+                <div class="layer layer8"></div>
+                <div class="layer layer9"></div>
+            </div>
+        </div>
+        <h1 class="title">
+            <span>Portfolio</span>
+        </h1>
+    </section>
+    <section class="bloc2 bloc">
+
+    </section>    
+</body>
+
+
+
+<script>
+    const spanContainer = document.querySelectorAll('.title');
+    spanContainer.forEach(item => {
+        const letters = item.children[0].textContent.split('');
+        item.innerHTML = "";
+
+        letters.forEach((el, index) => {
+            item.innerHTML += `<span>${el}</span>`
+        })
+    })
+</script>
+<script>
+    const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+    console.log('test');
+    window.addEventListener('wheel', function(event) {
+        if (!document.getElementsByClassName('overlay')[0].classList.contains('active')) {
+            let way = window.pageXOffset/document.body.clientWidth *100;
+            if ( way > 32 && way < 39 ) {
+                console.log('test')
+                window.scrollBy({
+                top: 0,
+                left: event.deltaY*10,
+                behavior : "smooth"
+            }) } else {
+                window.scrollBy({
+                top: 0,
+                left: event.deltaY,
+                behavior : "smooth"
+                })
+             }
+            }
+        })
+            
+
+    //2138 
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.toggle').click(function() {
+            $('.body').toggleClass('active')
+            $('.toggle').toggleClass('active')
+            $('.overlay').toggleClass('active')
+            $('.menu').toggleClass('active')
+            $('.title').toggleClass('active')
+        })
+    })
+</script>
+</html>
